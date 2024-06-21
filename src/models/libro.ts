@@ -1,4 +1,4 @@
-class Libro {
+export class Libro {
     titulo: string 
     autor: string 
     genero: string
@@ -50,5 +50,15 @@ class Libro {
         this.dimensiones = dimensiones
         this.peso = peso
         this.disponible = disponible 
+    }
+
+    Descuento(){
+        let descuuento: number = 0.2;
+        let descuentoTotal: number = 0;
+        if(this.precio >= 50){
+            descuentoTotal = this.precio - (this.precio * descuuento)
+            console.log(`Precio original ${this.precio}`)
+            console.log(`Precio con descuento ${descuentoTotal}`)
+        }
     }
 }
