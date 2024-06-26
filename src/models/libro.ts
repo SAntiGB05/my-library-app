@@ -14,7 +14,7 @@ export class Libro {
     paginas:number 
     dimensiones: string 
     peso: string 
-    disponible: boolean
+    disponible: string
 
     constructor(
         titulo:string,
@@ -32,7 +32,7 @@ export class Libro {
         paginas:number, 
         dimensiones: string, 
         peso: string, 
-        disponible: boolean 
+        disponible: string 
     ){
         this.titulo = titulo
         this.autor = autor
