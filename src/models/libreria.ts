@@ -21,8 +21,9 @@ export class Libreria {
     }
     
     VerLibros() {
+        const libroPorDefecto = new Libro()
         console.log('pila actual de libros');
-        console.table(this.book);
+        console.log(this.book,libroPorDefecto);
     }
 
 }
