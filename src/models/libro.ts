@@ -52,7 +52,7 @@ export class Libro {
         this.disponible = disponible 
     }
 
-    Descuento(){
+    Descuento(): void{
         let descuuento: number = 0.2;
         let descuentoTotal: number = 0;
         if(this.precio >= 50){

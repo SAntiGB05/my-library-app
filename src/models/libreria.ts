@@ -16,10 +16,8 @@ export class Libreria {
         this.book.push(nuevoLibro)
     }
 
-    EliminarLibros() {
-        let libroEliminado = this.book.pop()
-        console.log('libro eliminado:');
-        console.log(libroEliminado);
+    EliminarLibros(): any {
+        this.book.pop()
     }
     
     VerLibros() {
