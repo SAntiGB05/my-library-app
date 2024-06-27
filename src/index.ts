@@ -31,5 +31,66 @@ function AgregarLibro(): void {
 
 
 
-AgregarLibro();
+function Menu(): number {
+  let menu: string
+  menu = 'Menu libreria\n\n'
+  menu += '1: agregar nuevo libro\n'
+  menu += '2: Eliminar libro\n'
+  menu += '3: Mostrar pila de libros\n'
+  let codigo: number = parseInt(promptSync(menu))
+
+  return codigo
+}
+
+function EjecutarMenu() {
+  let codigoMenu: number = Menu()
+  switch (codigoMenu) {
+  case 1:
+      AgregarLibro()
+      EjecutarMenu2()
+      break;
+  case 2:
+      EliminarLibros()
+      EjecutarMenu2()
+      break;
+  case 3:
+      VerLibros()
+      EjecutarMenu2()
+      break;
+    default: 
+      false;
+      break;
+  }
+}
+
+function Menu2() {
+    let menu: string = 'Desea continuar en el menu\n\n';
+    menu += '1: si\n';
+    menu += '2: no\n\n';
+    menu += 'Elija una opcion: ';
+    let codigo: number = parseInt(promptSync(menu));
+
+    return codigo;
+}
+
+function EjecutarMenu2() {
+  let continuar: boolean = true;
+
+  while (continuar) {
+      let codigoMenu: number = Menu2();
+      switch (codigoMenu) {
+          case 1:
+              EjecutarMenu();
+              break;
+          case 2:
+              alert('Salió del menú');
+              continuar = false;
+              break;
+          default:
+              alert('Opción no válida. Intente de nuevo.');
+              break;
+      }
+  }
+}
+
 
