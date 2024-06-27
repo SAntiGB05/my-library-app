@@ -6,25 +6,6 @@ const promptSync = PromptSync();
 
 const miLibreria = new Libreria('accion','libros de accion');
 
-const miBook = new Libro(
-  'Cien años de soledad', 
-  'Gabriel García Márquez',
-  'Ficción',
-  'Español',
-  18.99,
-  'Tapa blanda',
-  '978-0307474728',
-  'La novela narra la historia de la familia Buendía a lo largo de siete generaciones en el ficticio pueblo de Macondo.', 
-  'nuevo',
-  'Bogotá, Colombia',
-  1967,
-  'Editorial Sudamericana',
-  417, 
-  '13 x 2.8 x 19.8 cm',
-  '340 gramos',
-  'si'
-)
-
 function AgregarLibro(): void {
   const titulo: string = promptSync("Ingrese el título del libro: ");
   const autor: string = promptSync("Ingrese el autor del libro: ");
@@ -58,46 +39,44 @@ function VerLibros(): void {
 }
 
 function Descuento(): void {
-  miBook.Descuento()
+  const libroPorDefecto = new Libro()
+  libroPorDefecto.AplicarDescuento()
 }
 
-function Menu(): number {
-  let menu: string
-  menu = 'Menu libreria\n\n'
-  menu += '1: agregar nuevo libro\n'
-  menu += '2: Eliminar libro\n'
-  menu += '3: Mostrar pila de libros\n'
-  menu += '4: Mostrar descuento de libros\n'
-  let codigo: number = parseInt(promptSync(menu))
+function menu(): void {
+  let opcion: string;
+  do {
+      console.log('\n--- Menú ---');
+      console.log('1. Agregar libro');
+      console.log('2. Eliminar libro');
+      console.log('3. Ver libros');
+      console.log('4. Ver descuento');
+      console.log('5. Salir');
+      opcion = promptSync('Seleccione una opción: ');
 
-  return codigo
+      switch (opcion) {
+          case '1':
+              AgregarLibro();
+              break;
+          case '2':
+              EliminarLibros();
+              break;
+          case '3':
+              VerLibros();
+              break;
+          case '4':
+              Descuento()
+              break;
+          case '5':
+              console.log('Saliendo del menu...');
+              break;
+          default:
+              console.log('Opción no válida. Intente de nuevo.');
+      }
+  } while (opcion !== '5');
 }
 
-function EjecutarMenu() {
-  let codigoMenu: number = Menu()
-  do{
-    switch (codigoMenu) {
-    case 1:
-      AgregarLibro()
-      break;
-    case 2:
-      EliminarLibros()
-      break;
-    case 3:
-      VerLibros()
-      break;
-    case 4:
-      Descuento()
-      break;
-    case 5:
-      console.log('saliendi del menu...')
-      break;
-    default: 
-      false;
-      break;
-  }
-  }while(codigoMenu !== 5)
-}
+menu();
 
 
-EjecutarMenu()
+

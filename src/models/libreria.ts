@@ -22,7 +22,7 @@ export class Libreria {
     
     VerLibros() {
         console.log('pila actual de libros');
-        console.log(this.book);
+        console.table(this.book);
     }
 
 }
